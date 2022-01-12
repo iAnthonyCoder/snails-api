@@ -15,7 +15,7 @@ exports.find = async (req, res, next) => {
                 res.status(err.statusCode).json({message: err.message})
             } else {
                 let parsed = JSON.parse(data.Body.toString())
-                parsed.image = parsed.image.replace('url', 'http://localhost:5000/images')
+                parsed.image = parsed.image.replace('url', 'https://crazy-snails.herokuapp.com/images')
                 res.json(parsed)
             }
 
