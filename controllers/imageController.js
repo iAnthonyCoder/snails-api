@@ -11,7 +11,9 @@ exports.findImage = async (req, res, next) => {
         const data = await s3.getObject(config).promise()
         const b64 = Buffer.from(data.Body).toString('base64');
         const mimeType = 'image/png'; // e.g., image/png
-        res.send(`<img src="data:${mimeType};base64,${b64}" />`);
+        res.writeHead(200, {'Content-Type': 'image/jpg'});
+  res.end(b64,'Base64');
+        // res.send(`<img src="data:${mimeType};base64,${b64}" />`);
 
     } catch (er) {
 
