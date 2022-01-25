@@ -52,7 +52,7 @@ exports.add = async (req, res, next) => {
                 if(parsed.find(x => x.email === values.email) || parsed.find(x => x.address === values.address)){
                     res.status(409).json({message:"Email or address is already added"})
                 } else {
-                    parsed = parsed.concat(values)
+                    parsed = [values, ...parsed]
            
                     s3.deleteObject(config, function(err, data) {
                         if (err) {
