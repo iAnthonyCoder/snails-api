@@ -5,7 +5,7 @@ const s3 = new AWS.S3();
 
 exports.find = async (req, res, next) => {
 
-    let config = {Bucket: 'nft-col-01', Key: req.params.id+'.json',}
+    let config = {Bucket: 'crazysnails-bucket', Key: req.params.id+'.json',}
 
     try {
 
@@ -32,7 +32,7 @@ exports.find = async (req, res, next) => {
 
 exports.findDefault = async (req, res, next) => {
 
-    let config = {Bucket: 'nft-col-01', Key: 'default.json',}
+    let config = {Bucket: 'crazysnails-bucket', Key: 'default.json',}
 
     try {
 

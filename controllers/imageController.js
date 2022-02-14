@@ -7,7 +7,7 @@ exports.findImage = async (req, res, next) => {
 
     try {
 
-        let config = {Bucket: 'nft-col-01', Key: req.params.id}
+        let config = {Bucket: 'crazysnails-bucket', Key: req.params.id}
         const data = await s3.getObject(config).promise()
         const b64 = Buffer.from(data.Body).toString('base64');
         const mimeType = 'image/png'; // e.g., image/png
