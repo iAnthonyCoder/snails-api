@@ -117,10 +117,9 @@ exports.add = async (req, res, next) => {
     try {
 
         
-
         let info = {
-            email: req.body.email,
-            address: req.body.address
+            email: req.query.email,
+            address: req.query.address
         }
 
 
@@ -136,7 +135,7 @@ exports.add = async (req, res, next) => {
         
 
         let values = validation.value
-
+        
         let isValidAdress = checkAddress(values)
 
         if(!isValidAdress){
@@ -146,7 +145,7 @@ exports.add = async (req, res, next) => {
         values.createdAt = new Date().toISOString()
 
         
-    
+        
         s3.getObject(config, function(err, data){
 
             if(err) {
